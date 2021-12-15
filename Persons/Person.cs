@@ -52,15 +52,16 @@ namespace Persons
         {
             age = 1;
         }
-        public Person(string fname1) : this()
+        public Person(string fname1, string lname) : this()
         {
             fname = fname1;
+            Lname = lname;
         }
         
 
-        public void ListPerson()
+        public void PrintInfo()
         {
-            Console.WriteLine(age + " " + fname + " " + lname);
+            Console.WriteLine($"Name: {Fname} {Lname}, Age: {Age}, Height: {Height}, Weight: {Weight}.");
         }
 
     }

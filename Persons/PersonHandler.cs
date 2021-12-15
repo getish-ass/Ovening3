@@ -9,7 +9,8 @@ namespace Persons
     class PersonHandler
     {
 
-        public Person person = new Person();
+        //public Person person = new Person();
+        public List<Person> persons = new List<Person>();
         
         public void SetAge(Person pers, uint age)
         {
@@ -17,10 +18,13 @@ namespace Persons
         }
         public Person CreatePerson(uint age, string fname, string lname, double height, double weight)
         {
+            Person person = new Person(); 
+
             try { 
-            person.Age = age;
-            person.Fname = fname;
-            person.Lname = lname;
+
+                person.Age = age;
+                person.Fname = fname;
+                person.Lname = lname;
             }
             catch(ArgumentException e)
             {
@@ -30,6 +34,9 @@ namespace Persons
 
             person.Height = height;
             person.Weight = weight;
+
+            persons.Add(person);
+
             return person;
         }
         //public List<Person> CreatePersonList(uint age, string fname, string lname, double height, double weight)
@@ -56,13 +63,12 @@ namespace Persons
         //    ListPerson.add(persons);
         //    return ListPerson;
         //}
-        public void ShowPerson()
+        public void PrintAllPersons()
         {
-            Console.WriteLine("age: " + person.Age +
-                              " First Name: " + person.Fname +
-                              " Last Name: " + person.Lname +
-                              " Height: " + person.Height +
-                              " Weight: " + person.Weight );
+            foreach (var person in persons)
+            {
+                person.PrintInfo();
+            }
         }
     }
 }
